@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      body {
+        background: #495aff;
+      }
+
+      .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .app{
+        display: grid;
+        justify-items: center;
+        border: 4px outset #7c7c7c;
+        padding: 8px;
+        background: moccasin;
+      }
+
+      .display{
+        font-size: 8rem;
+        font-weight: bold;
+      }
+
+      button{
+        padding: 4px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0px 2px 8px 2px black;
+      }
+
+      button:hover{
+        opacity: 0.5;
+      }
+
+      .buttons{
+
+      }
+
+      .minus{ 
+        background: #ff2e2e;
+      }
+
+      .reset{
+        background: #aba9a9;
+      }
+
+      .plus{
+        background: #22f422;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="app">
+
+            <h1>Counter</h1>
+        <div class="display">0</div>
+        <div class="buttons">
+            <button class="minus">&#10134;</button>
+            <button class="reset">reset</button>
+            <button class="plus">&#10133;</button>
+        </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const display = document.querySelector(".display")
+        let count = 0
+
+        document.addEventListener("click", (e) => {
+            const clicked = e.target;
+            if(clicked.classList.contains("minus")){
+                //console.log("btn minus");
+                decrementation()
+            }
+            else if(clicked.classList.contains("reset")){
+                //console.log("btn reset");
+                reset()
+            }
+            else if(clicked.classList.contains("plus")){
+                //console.log("btn plus");
+                incrementation()
+            }
+
+        })
+
+        function decrementation(){
+            count--
+            display.textContent = count
+        }
+
+        function incrementation(){
+          count++
+          display.textContent = count
+        }
+
+        function reset(){
+            count = 0
+            display.textContent = count 
+        }
+
+    </script>
+</body>
+</html>
